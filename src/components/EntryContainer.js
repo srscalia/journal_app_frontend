@@ -8,7 +8,7 @@ class EntryContainer extends Component {
       <div>
         EntryContainer
         <NewEntry/>
-        <ViewEntry/>
+        <ViewEntry entry={this.props.entry}/>
       </div>
     )
   }

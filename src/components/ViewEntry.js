@@ -4,7 +4,8 @@ class ViewEntry extends Component {
   render() {
     return (
       <div>
-        -ViewEntry
+        {this.props.entry ? this.props.entry.title : null}
+
       </div>
     )
   }

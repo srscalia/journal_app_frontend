@@ -6,7 +6,10 @@ class MainContentContainer extends Component {
     return (
       <div>
         MainContentContainer
-        <TimelineList/>
+        <TimelineList
+          journal={this.props.journal}
+          handleEntryClick={this.props.handleEntryClick}
+          />
       </div>
     )
   }
