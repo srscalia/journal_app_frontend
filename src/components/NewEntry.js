@@ -4,7 +4,6 @@ class NewEntry extends Component {
   render() {
     return (
       <div>
-        -NewEntry
       </div>
     )
   }
