@@ -6,10 +6,10 @@ import UserPageContainer from './UserPageContainer'
 const USER = 'http://localhost:3000/api/v1/users/1'
 
 class Body extends Component {
-
-  state = {
-    user: null
-  }
+  // 
+  // state = {
+  //   user: null
+  // }
 
   componentDidMount(){
     fetch(USER)
@@ -26,7 +26,7 @@ class Body extends Component {
     return (
       <Fragment>
         <LoginContainer/>
-        <UserPageContainer user={this.state.user}/>
+        <UserPageContainer/>
       </Fragment>
       )
     }

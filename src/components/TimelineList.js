@@ -1,16 +1,17 @@
-import React, { Component } from 'react'
-import TimelineEntry from './TimelineEntry'
+import React, { Component } from 'react';
+import TimelineEntry from './TimelineEntry';
+import { connect } from 'react-redux';
 
 
 class TimelineList extends Component {
 
-  renderEntries = () => {
-    if (this.props.journal) {
-      return this.props.journal.entries.map(entry=> {
+  renderEntries = ()=>{
+    if (this.props.selectedJournal) {
+      let journal = this.props.user.journals.find(journal=>journal.id===this.props.selectedJournal)
+      return journal.entries.map(entry=> {
         return <TimelineEntry
           key={entry.id}
           entry={entry}
-          handleEntryClick={this.props.handleEntryClick}
           />
       })
     }
@@ -24,4 +25,11 @@ class TimelineList extends Component {
   }
 }
 
-export default TimelineList
+function mapStateToProps(state){
+  return {
+    user: state.user,
+    selectedJournal: state.selectedJournal
+  }
+}
+
+export default connect(mapStateToProps)(TimelineList)

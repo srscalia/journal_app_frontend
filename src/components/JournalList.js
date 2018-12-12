@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Journal from './Journal'
+import { connect } from 'react-redux'
 
 class JournalList extends Component {
 
@@ -7,7 +8,6 @@ class JournalList extends Component {
     if (this.props.user) {
       return this.props.user.journals.map(journal=>{
         return <Journal
-          handleJournalClick={this.props.handleJournalClick}
           key={journal.id}
           journal={journal}/>
       })
@@ -23,4 +23,10 @@ class JournalList extends Component {
   }
 }
 
-export default JournalList
+function mapStateToProps(state){
+  return {
+    user: state.user
+  }
+}
+
+export default connect(mapStateToProps)(JournalList)

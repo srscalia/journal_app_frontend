@@ -6,9 +6,7 @@ class Sidebar extends Component {
     return (
       <div>
         Sidebar
-        <JournalList
-          handleJournalClick={this.props.handleJournalClick}
-          user={this.props.user}/>
+        <JournalList/>
       </div>
     )
   }

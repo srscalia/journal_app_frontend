@@ -6,7 +6,6 @@ class LoginContainer extends Component {
   render() {
     return (
       <div>
-        LoginContainer
         <Login/>
         <Signup/>
       </div>
