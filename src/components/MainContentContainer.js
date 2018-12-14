@@ -5,7 +5,6 @@ class MainContentContainer extends Component {
   render() {
     return (
       <div>
-        MainContentContainer
         <TimelineList/>
       </div>
     )

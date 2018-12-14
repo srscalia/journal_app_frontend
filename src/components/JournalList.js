@@ -16,7 +16,7 @@ class JournalList extends Component {
 
   render() {
     return (
-      <div>
+      <div className="ui cards">
         {this.renderJournals()}
       </div>
     )

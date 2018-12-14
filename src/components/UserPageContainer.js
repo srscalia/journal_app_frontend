@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Sidebar from './Sidebar';
 import MainContentContainer from './MainContentContainer';
 import EntryContainer from './EntryContainer';
-// import { connect } from 'react-redux';
+
 
 class UserPageContainer extends Component {
 
@@ -11,12 +11,20 @@ class UserPageContainer extends Component {
       <div className="ui internally celled grid">
         <div className="row">
           <div className="three wide column">
-            <Sidebar/>
-          </div>
-          <div className="ten wide column">
-            <MainContentContainer/>
+            <div className="ui small header">Journals</div>
           </div>
           <div className="three wide column">
+              <div className="ui small header">Entries</div>
+          </div>
+        </div>
+        <div className="row">
+          <div className="three wide column">
+            <Sidebar/>
+          </div>
+          <div className="three wide column">
+            <MainContentContainer/>
+          </div>
+          <div className="eight wide column">
             <EntryContainer/>
           </div>
         </div>
@@ -24,5 +32,7 @@ class UserPageContainer extends Component {
     )
   }
 }
+
+
 
 export default UserPageContainer

@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
+import NewEntryContainer from './NewEntryContainer'
 
 class ViewEntry extends Component {
 
@@ -10,10 +11,19 @@ class ViewEntry extends Component {
     }
   }
 
+  editClickHandler = ()=>{
+    this.props.showEntryEditForm()
+    this.props.entryToEdit()
+  }
+
   render() {
+    let entry = this.renderEntry()
     return (
       <div>
-        {this.props.selectedEntry ? this.renderEntry().title: null}
+        {this.props.selectedEntry ? <Fragment><h1>{entry.title}</h1>
+          <div>{entry.body}</div>
+          <button onClick={this.editClickHandler} className="ui primary button">Edit</button></Fragment> : <NewEntryContainer/>}
+
       </div>
     )
   }
@@ -26,5 +36,12 @@ function mapStateToProps(state){
     selectedEntry: state.selectedEntry
   }
 }
+function mapDispatchToProps(dispatch){
+  return {
+    showEntryEditForm: ()=> dispatch({
+      type: "SHOW_ENTRY_EDIT_FORM"
+    })
+  }
+}
 
-export default connect(mapStateToProps)(ViewEntry)
+export default connect(mapStateToProps, mapDispatchToProps)(ViewEntry)

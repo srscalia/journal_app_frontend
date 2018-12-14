@@ -19,7 +19,6 @@ class TimelineList extends Component {
 
   render () {
     return(<div>
-      -TimelineList
       {this.renderEntries()}
     </div>)
   }

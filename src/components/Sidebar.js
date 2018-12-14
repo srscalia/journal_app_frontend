@@ -1,11 +1,28 @@
 import React, { Component } from 'react'
 import JournalList from './JournalList'
+import NewJournal from './NewJournal'
 
 class Sidebar extends Component {
+
+  state = {
+    showForm: false
+  }
+
+showForm = ()=>{
+  this.setState({
+    showForm: !this.state.showForm
+  })
+}
+
+
+
   render() {
     return (
       <div>
-        Sidebar
+        {this.state.showForm ? <NewJournal showForm={this.showForm}/> : <button onClick={this.showForm} className="ui icon button container">
+          <i className="plus icon"></i>
+        </button>}
+
         <JournalList/>
       </div>
     )
