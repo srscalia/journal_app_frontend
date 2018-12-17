@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 
 let widget = window.cloudinary.createUploadWidget({
-cloudName: "duttsiajw", uploadPreset: "g6c7ien8" }, (error, result) => { if (result.info.url) {
+  cloudName: ENV["REACT_APP_CLOUD_NAME"], uploadPreset: ENV["REACT_APP_UPLOAD_PRESET"] }, (error, result) => { if (result.info.url) {
   console.log(result.info.url)
 }
 });
