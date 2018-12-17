@@ -87,8 +87,8 @@ class Journal extends Component {
             <div className="field">
               <input onChange={this.handleChangeFor} type="text" placeholder="Theme" value={this.state.theme}></input>
             </div>
-            <button className="ui button primary" type="submit">Submit</button>
-            <button onClick={this.handleDeleteJournal} className="ui button">
+            <button className="mini ui button primary" type="submit">Submit</button>
+            <button onClick={this.handleDeleteJournal} className="mini ui button">
                 Delete
               </button>
           </form>
@@ -97,7 +97,9 @@ class Journal extends Component {
       <div className="card" onClick={()=>this.props.selectJournal(this.props.journal.id)}>
         <div className="content">
           <div className="header">{this.props.journal.theme}</div>
-          <div className="meta" onClick={()=>this.handleEditJournal()}>Edit</div>
+            <button className="mini ui right floated compact icon button" onClick={()=>this.handleEditJournal()}>
+              <i className="wrench icon"></i>
+            </button>
         </div>
       </div>}
     </Fragment>

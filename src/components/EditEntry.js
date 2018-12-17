@@ -72,6 +72,10 @@ class EditEntry extends Component {
       })
     })
   }
+  handleDiscard = (event) =>{
+    event.preventDefault()
+    this.props.showEntryEditForm()
+  }
 
   render() {
     return (
@@ -83,10 +87,10 @@ class EditEntry extends Component {
         <button type='submit' className="ui primary button">
           Save
         </button>
-        <div onClick={this.props.showEntryEditForm}>
+        <button onClick={this.handleDiscard} className="ui button">
           Discard
-        </div>
-        <button onClick={this.handleDelete}className="ui button">
+        </button>
+        <button onClick={this.handleDelete} className="ui button">
           Delete
         </button>
       </form>

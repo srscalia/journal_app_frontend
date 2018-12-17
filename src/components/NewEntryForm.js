@@ -1,11 +1,22 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 
+let widget = window.cloudinary.createUploadWidget({
+cloudName: "duttsiajw", uploadPreset: "g6c7ien8" }, (error, result) => { if (result.info.url) {
+  console.log(result.info.url)
+}
+});
+
 class NewEntryForm extends Component {
 
   state={
     title: '',
     body: ''
+  }
+
+  handleClick = (event)=>{
+    event.preventDefault()
+    widget.open();
   }
 
   handleChangeFor = (propertyName) => (event) => {
@@ -48,6 +59,11 @@ class NewEntryForm extends Component {
     })
   }
 
+  handleDiscard = (event)=>{
+    event.preventDefault()
+    this.props.updateShowForm()
+  }
+
   render() {
     return (
       <form onSubmit={this.handleSubmit} className="ui form">
@@ -55,12 +71,13 @@ class NewEntryForm extends Component {
           <input type="text" placeholder="Title" value={this.state.title} onChange={this.handleChangeFor('title')}></input>
           <textarea placeholder="A safe place your thoughts" value={this.state.body} onChange={this.handleChangeFor('body')}></textarea>
         </div>
+        <button onClick={this.handleClick} id="upload_widget" className="cloudinary-button ui button">Upload files</button>
         <button type='submit' className="ui primary button">
           Save
         </button>
-        <div onClick={this.props.updateShowForm}>
+        <button className="ui button" onClick={this.handleDiscard}>
           Discard
-        </div>
+        </button>
       </form>
     )
   }
