@@ -24,6 +24,8 @@ function reducer(state = initialState, action){
       return {...state, showEntry: !state.showEntry, showEntryEditForm: !state.showEntryEditForm}
     case "DELETED_ENTRY":
       return {...state, selectedEntry: null, showEntryEditForm: false}
+    case "DELETED_JOURNAL":
+      return {...state, selectedJournal: null}
     default:
       return state
   }
