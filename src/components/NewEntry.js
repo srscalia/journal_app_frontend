@@ -6,10 +6,7 @@ class NewEntry extends Component {
 
   render() {
     return (
-      <button onClick={this.props.showNewEntryForm} className="ui icon button">
-        <i className="plus icon"></i>
-      </button>
-
+        <i onClick={this.props.showNewEntryForm} className="circular small plus icon"></i>
     )
   }
 }

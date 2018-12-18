@@ -8,6 +8,16 @@ class Journal extends Component {
     theme: this.props.journal.theme
   }
 
+  rowStyle = {
+    float: 'right'
+  };
+
+  styleMe = ()=>{
+    return {
+      'backgroundColor': this.props.journal.id === this.props.selectedJournal ? '#A2D8C0' : '#FFFFFF'
+    }
+  }
+
   handleEditJournal = ()=>{
     this.setState({
       editJournal: !this.state.editJournal
@@ -77,12 +87,16 @@ class Journal extends Component {
     })
   }
 
+  handleClick = ()=>{
+    this.props.selectJournal(this.props.journal.id)
+  }
+
 
   render() {
     return (
       <Fragment>
-      {this.state.editJournal ? <div className="card">
-        <div className="content">
+      {this.state.editJournal ? <div className="row">
+        <div className="column">
           <form onSubmit={this.handleEdit} className="ui form">
             <div className="field">
               <input onChange={this.handleChangeFor} type="text" placeholder="Theme" value={this.state.theme}></input>
@@ -93,15 +107,17 @@ class Journal extends Component {
               </button>
           </form>
         </div>
-      </div> :
-      <div className="card" onClick={()=>this.props.selectJournal(this.props.journal.id)}>
-        <div className="content">
-          <div className="header">{this.props.journal.theme}</div>
-            <button className="mini ui right floated compact icon button" onClick={()=>this.handleEditJournal()}>
-              <i className="wrench icon"></i>
-            </button>
-        </div>
-      </div>}
+      </div> : this.props.journal.id === this.props.selectedJournal
+       ? <div className="row" style={this.styleMe()} onClick={this.handleClick}>
+         <div className="column">
+           {this.props.journal.theme}
+           <div style={this.rowStyle}><i className="circular small wrench icon" onClick={()=>this.handleEditJournal()}></i></div>
+         </div>
+       </div> : <div className="row" style={this.styleMe()} onClick={this.handleClick}>
+         <div className="column">
+           {this.props.journal.theme}
+         </div>
+       </div>}
     </Fragment>
     )
   }

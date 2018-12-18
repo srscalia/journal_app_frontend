@@ -1,22 +1,34 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 
-let widget = window.cloudinary.createUploadWidget({
-  cloudName: ENV["REACT_APP_CLOUD_NAME"], uploadPreset: ENV["REACT_APP_UPLOAD_PRESET"] }, (error, result) => { if (result.info.url) {
-  console.log(result.info.url)
-}
-});
-
 class NewEntryForm extends Component {
 
   state={
     title: '',
-    body: ''
+    body: '',
+    photo: '',
+    location: '',
+    date: new Date().toString()
+  }
+
+  widget = window.cloudinary.createUploadWidget({
+    cloudName: process.env.REACT_APP_CLOUD_NAME, uploadPreset: process.env.REACT_APP_UPLOAD_PRESET }, (error, result) => {
+      if (result && result.event==="success") {
+        this.setState({
+          photo: result.info.url
+        }
+      )
+    }
+
+  });
+
+  componentDidMount(){
+    this.showLocation()
   }
 
   handleClick = (event)=>{
     event.preventDefault()
-    widget.open();
+    this.widget.open();
   }
 
   handleChangeFor = (propertyName) => (event) => {
@@ -40,6 +52,7 @@ class NewEntryForm extends Component {
       body: JSON.stringify({
         title: this.state.title,
         body: this.state.body,
+        photo: this.state.photo,
         journal_id: this.props.selectedJournal
       })
     }).then(r=>r.json())
@@ -64,6 +77,18 @@ class NewEntryForm extends Component {
     this.props.updateShowForm()
   }
 
+  showLocation = ()=>{
+    fetch('http://ip-api.com/json')
+    .then(r=>r.json())
+    .then(json=>{
+      let location = json.city +', '+json.countryCode
+      this.setState({
+        location: location
+      })
+    })
+  }
+
+
   render() {
     return (
       <form onSubmit={this.handleSubmit} className="ui form">
@@ -71,6 +96,8 @@ class NewEntryForm extends Component {
           <input type="text" placeholder="Title" value={this.state.title} onChange={this.handleChangeFor('title')}></input>
           <textarea placeholder="A safe place your thoughts" value={this.state.body} onChange={this.handleChangeFor('body')}></textarea>
         </div>
+        <div>Location: {this.state.location}</div>
+        <div>Date: {this.state.date}</div>
         <button onClick={this.handleClick} id="upload_widget" className="cloudinary-button ui button">Upload files</button>
         <button type='submit' className="ui primary button">
           Save
@@ -102,5 +129,7 @@ function mapDispatchToState(dispatch){
     })
   }
 }
+
+
 
 export default connect(mapStateToProps, mapDispatchToState)(NewEntryForm)

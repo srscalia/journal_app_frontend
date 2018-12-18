@@ -5,7 +5,8 @@ class EditEntry extends Component {
 
   state={
     title: this.props.title,
-    body: this.props.body
+    body: this.props.body,
+    photo: this.props.photo
   }
 
   handleChangeFor = (propertyName) => (event) => {
@@ -29,7 +30,10 @@ class EditEntry extends Component {
       body: JSON.stringify({
         title: this.state.title,
         body: this.state.body,
-        journal_id: this.props.selectedJournal
+        photo: this.state.photo,
+        journal_id: this.props.selectedJournal,
+        location: this.props.location,
+        date: this.props.date
       })
     }).then(r=>r.json())
     .then(json=>{
@@ -83,6 +87,9 @@ class EditEntry extends Component {
         <div className="field">
           <input type="text" placeholder="Title" value={this.state.title} onChange={this.handleChangeFor('title')}></input>
           <textarea placeholder="A safe place your thoughts" value={this.state.body} onChange={this.handleChangeFor('body')}></textarea>
+          <input type="text" value={this.state.photo} onChange={this.handleChangeFor('photo')}></input>
+          <div>Location: {this.props.location}</div>
+          <div>Date: {this.props.date}</div>
         </div>
         <button type='submit' className="ui primary button">
           Save

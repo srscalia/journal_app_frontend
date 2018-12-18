@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 
 
@@ -35,18 +35,20 @@ class Login extends Component {
   )
   .then(r=>r.json())
   .then(json=>{
-    // console.log(json.user)
     localStorage.setItem('Authorization', [json.jwt])
+    localStorage.setItem('user', JSON.stringify([json.user]))
     // console.log(localStorage.getItem('Authorization'))
     this.props.loginUser(json.user)
+
   })
 }
 
   render() {
     return (
+      <Fragment>
       <div className="ui grid container centered">
         <div className="six wide column">
-          <form onSubmit={this.handleSubmit} className="ui form">
+          <form onSubmit={this.handleSubmit} className="ui form grey">
             <div className="field">
               <label>Username</label>
               <input type="text" name="first-name" placeholder="Username" value={this.state.username} onChange={this.handleChangeFor('username')}></input>
@@ -57,9 +59,12 @@ class Login extends Component {
             </div>
             <button className="ui button" type="submit">Submit</button>
           </form>
-          <div onClick={this.props.createAccount}>new user</div>
+          <div className="ui small message">New to us?
+            <a onClick={this.props.createAccount} href='/home'> Sign Up</a>
+          </div>
         </div>
       </div>
+</Fragment>
     )
   }
 }

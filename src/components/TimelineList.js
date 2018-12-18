@@ -18,7 +18,7 @@ class TimelineList extends Component {
   }
 
   render () {
-    return(<div>
+    return(<div className="ui internally celled grid">
       {this.renderEntries()}
     </div>)
   }

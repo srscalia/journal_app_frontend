@@ -8,18 +8,11 @@ class EntryContainer extends Component {
 
   state = {
     title: '',
-    body: ''
+    body: '',
+    photo: '',
+    location: '',
+    date: ''
   }
-  //
-  // editEntry=()=>{
-  //   console.log('hi')
-  //   this.setState({
-  //     showEditForm: !this.state.showEditForm,
-  //     showEntry: !this.state.showEntry
-  //   })
-  // }
-
-
 
   renderEntry = ()=>{
     if (this.props.selectedEntry) {
@@ -32,7 +25,10 @@ class EntryContainer extends Component {
     let entry = this.renderEntry()
     this.setState({
       title: entry.title,
-      body: entry.body
+      body: entry.body,
+      photo: entry.photo,
+      location: entry.location,
+      date: entry.date
     })
   }
 
@@ -43,7 +39,7 @@ class EntryContainer extends Component {
       )
     } else if (this.props.showEntryEditForm) {
       return (
-        <EditEntry title={this.state.title} body={this.state.body} />
+        <EditEntry title={this.state.title} body={this.state.body} photo={this.state.photo} location={this.state.location} date={this.state.date}/>
       )
     } else {
       return (

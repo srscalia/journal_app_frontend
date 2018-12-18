@@ -41,11 +41,14 @@ class NewJournal extends Component {
       .then(r=>r.json())
       .then(json => {
         this.props.updateUserJournals(json)
-        this.props.showForm()
+        this.props.showFormFn()
       })
+    })
+  }
 
-  })
-
+  handleDiscard = (event)=>{
+    event.preventDefault()
+    this.props.showFormFn()
   }
 
   render() {
@@ -54,12 +57,12 @@ class NewJournal extends Component {
         <div className="field">
           <input type="text" placeholder="New Journal" value={this.state.theme} onChange={this.handleChangeFor}></input>
         </div>
-        <button type='submit' className="ui primary button">
+        <button type='submit' className="small ui primary button">
           Save
         </button>
-        <div onClick={this.props.showForm}>
+        <button onClick={this.handleDiscard} className="small ui button">
           Discard
-        </div>
+        </button>
       </form>
     )
   }

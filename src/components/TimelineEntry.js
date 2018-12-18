@@ -2,7 +2,26 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 const TimelineEntry = (props)=> {
-  return <div onClick={()=>props.selectEntry(props.entry.id)}>{props.entry.title}</div>
+
+  let styleMe = ()=>{
+    return {
+      'backgroundColor': props.entry.id === props.selectedEntry ? '#A2D8C0' : '#FFFFFF'
+    }
+  }
+
+
+  return <div className="row" style={styleMe()} onClick={()=>props.selectEntry(props.entry.id)}>
+    <div className="column">
+      <div>{props.entry.title}</div>
+    </div>
+  </div>
+}
+
+function mapStateToProps(state){
+  return {
+    selectedEntry: state.selectedEntry
+  }
+
 }
 
 function mapDispatchToProps(dispatch){
@@ -14,4 +33,4 @@ function mapDispatchToProps(dispatch){
   }
 }
 
-export default connect(null, mapDispatchToProps)(TimelineEntry)
+export default connect(mapStateToProps, mapDispatchToProps)(TimelineEntry)

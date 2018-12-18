@@ -16,13 +16,17 @@ class ViewEntry extends Component {
     this.props.entryToEdit()
   }
 
+
   render() {
     let entry = this.renderEntry()
     return (
       <div>
         {this.props.selectedEntry ? <Fragment><h1>{entry.title}</h1>
           <div>{entry.body}</div>
-          <button onClick={this.editClickHandler} className="ui primary button">Edit</button></Fragment> : <NewEntryContainer/>}
+          <img src={entry['photo']} alt="journal entry"></img>
+          <div>Location: {entry.location}</div>
+          <div>Date: {entry.date}</div>
+          <div><button onClick={this.editClickHandler} className="ui primary button">Edit</button></div></Fragment> : <NewEntryContainer/>}
 
       </div>
     )

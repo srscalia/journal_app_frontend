@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import Journal from './Journal'
 import { connect } from 'react-redux'
 
@@ -16,9 +16,11 @@ class JournalList extends Component {
 
   render() {
     return (
-      <div className="ui cards">
-        {this.renderJournals()}
-      </div>
+      <Fragment>
+        <div className="ui internally celled grid">
+          {this.renderJournals()}
+        </div>
+    </Fragment>
     )
   }
 }
