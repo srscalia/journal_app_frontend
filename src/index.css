@@ -10,3 +10,10 @@
 #editButton {
   margin-top: 1em;
 }
+#dateNumber {
+  font-size: 30px;
+  float: right;
+}
+#dateMonth {
+  font-size: 10px;
+}

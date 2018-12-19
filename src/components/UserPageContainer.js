@@ -18,7 +18,6 @@ class UserPageContainer extends Component {
     this.setState({
       showForm: !this.state.showForm
     })
-    console.log('hi')
   }
 
   render() {
@@ -28,11 +27,13 @@ class UserPageContainer extends Component {
           <div className="three wide column">
             <div className="ui small header">Journals
                 <div style={this.iconStyle}><i onClick={()=>this.showFormFn()} className="circular small plus icon"></i></div>
-            </div>
 
+            </div>
+            <div>All entries</div>
           </div>
           <div className="three wide column">
               <div className="ui small header">Entries</div>
+              <div>Photos</div>
           </div>
         </div>
         <div className="row">
