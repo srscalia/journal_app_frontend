@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 
 class JournalList extends Component {
 
+
   renderJournals = ()=>{
     if (this.props.user) {
       return this.props.user.journals.map(journal=>{

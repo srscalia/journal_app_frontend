@@ -87,7 +87,7 @@ class EditEntry extends Component {
         <div className="field">
           <input type="text" placeholder="Title" value={this.state.title} onChange={this.handleChangeFor('title')}></input>
           <textarea placeholder="A safe place your thoughts" value={this.state.body} onChange={this.handleChangeFor('body')}></textarea>
-          <input type="text" value={this.state.photo} onChange={this.handleChangeFor('photo')}></input>
+          <input placeholder="Photo" type="text" value={this.state.photo} onChange={this.handleChangeFor('photo')}></input>
           <div>Location: {this.props.location}</div>
           <div>Date: {this.props.date}</div>
         </div>

@@ -6,7 +6,7 @@ class NewEntryForm extends Component {
   state={
     title: '',
     body: '',
-    photo: '',
+    photo: null,
     location: '',
     date: new Date().toString()
   }
@@ -53,7 +53,9 @@ class NewEntryForm extends Component {
         title: this.state.title,
         body: this.state.body,
         photo: this.state.photo,
-        journal_id: this.props.selectedJournal
+        journal_id: this.props.selectedJournal,
+        date: this.state.date,
+        location: this.state.location
       })
     }).then(r=>r.json())
       .then((json)=>{

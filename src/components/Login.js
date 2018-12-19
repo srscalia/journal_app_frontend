@@ -59,9 +59,7 @@ class Login extends Component {
             </div>
             <button className="ui button" type="submit">Submit</button>
           </form>
-          <div className="ui small message">New to us?
-            <a onClick={this.props.createAccount} href='/home'> Sign Up</a>
-          </div>
+          <div onClick={this.props.createAccount} className="ui small message">New to us? Sign Up Here.</div>
         </div>
       </div>
 </Fragment>

@@ -1,8 +1,13 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import NewEntryContainer from './NewEntryContainer'
+import Image from './Image'
 
 class ViewEntry extends Component {
+
+  dateStyle = {
+    float: 'right'
+  };
 
   renderEntry = ()=>{
     if (this.props.selectedEntry) {
@@ -20,13 +25,17 @@ class ViewEntry extends Component {
   render() {
     let entry = this.renderEntry()
     return (
-      <div>
-        {this.props.selectedEntry ? <Fragment><h1>{entry.title}</h1>
-          <div>{entry.body}</div>
-          <img src={entry['photo']} alt="journal entry"></img>
-          <div>Location: {entry.location}</div>
-          <div>Date: {entry.date}</div>
-          <div><button onClick={this.editClickHandler} className="ui primary button">Edit</button></div></Fragment> : <NewEntryContainer/>}
+      <div id="viewEntry">
+        {
+          this.props.selectedEntry ?
+          <Fragment><h1>{entry.title}</h1>
+            <div id="body">{entry.body}</div>
+            <Image selectedEntry={this.props.selectedEntry} entry={entry}/>
+            <div>Location: {entry.location} <span style={this.dateStyle}>Date: {entry.date}</span></div>
+            <div><button id='editButton' onClick={this.editClickHandler} className="ui primary button">Edit</button></div>
+          </Fragment> :
+          <NewEntryContainer/>
+        }
 
       </div>
     )
