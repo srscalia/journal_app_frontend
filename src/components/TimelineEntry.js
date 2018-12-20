@@ -35,19 +35,24 @@ const TimelineEntry = (props)=> {
         break;
       case 6:
         day = "Jul";
+        break;
       case 7:
         day = "Aug";
         break;
       case 8:
         day = "Sept";
+        break;
       case 9:
         day = "Oct";
         break;
       case 10:
         day = "Nov";
+        break;
       case 11:
         day = "Dec";
         break;
+      default:
+        day= '';
     }
     return day
   }

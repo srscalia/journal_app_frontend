@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Sidebar from './Sidebar';
 import MainContentContainer from './MainContentContainer';
 import EntryContainer from './EntryContainer';
+import withAuth from '../hoc/withAuth'
 
 
 class UserPageContainer extends Component {
@@ -53,4 +54,4 @@ class UserPageContainer extends Component {
 }
 
 
-export default UserPageContainer
+export default withAuth(UserPageContainer)

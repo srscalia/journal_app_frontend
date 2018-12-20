@@ -1,5 +1,7 @@
 const initialState = {
   user: null,
+  loggedIn: false,
+  authenticatingUser: false,
   selectedJournal: null,
   selectedEntry: null,
   showForm: false,
@@ -17,7 +19,7 @@ function reducer(state = initialState, action){
     case "SHOW_FORM":
       return {...state, showForm: action.payload}
     case "LOGIN_USER":
-      return {...state, user: action.payload}
+      return {...state, user: action.payload, loggedIn: true, authenticatingUser: false}
     case "UPDATE_USER":
       return {...state, user: action.payload}
     case "SHOW_ENTRY_EDIT_FORM":
@@ -26,6 +28,8 @@ function reducer(state = initialState, action){
       return {...state, selectedEntry: null, showEntryEditForm: false}
     case "DELETED_JOURNAL":
       return {...state, selectedJournal: null}
+    case "AUTHENTICATING_USER":
+    return {...state, authenticatingUser: true}
     default:
       return state
   }

@@ -22,6 +22,7 @@ class Login extends Component {
   }
 
   login = ()=>{
+    this.props.authenticatingUser()
     fetch('http://localhost:3000/api/v1/login', {
       method: 'POST',
       headers: {
@@ -31,17 +32,16 @@ class Login extends Component {
         username: this.state.username,
         password: this.state.password
       })
-    }
-  )
-  .then(r=>r.json())
-  .then(json=>{
-    localStorage.setItem('Authorization', [json.jwt])
-    localStorage.setItem('user', JSON.stringify([json.user]))
-    // console.log(localStorage.getItem('Authorization'))
-    this.props.loginUser(json.user)
+    })
+    .then(r=>r.json())
+    .then(json=>{
+      localStorage.setItem('Authorization', [json.jwt])
+      localStorage.setItem('user', JSON.stringify([json.user]))
+      // console.log(localStorage.getItem('Authorization'))
+      this.props.loginUser(json.user)
 
-  })
-}
+    })
+  }
 
   render() {
     return (
@@ -72,6 +72,9 @@ function mapDispatchToState(dispatch){
     loginUser: (user)=> dispatch({
       type: "LOGIN_USER",
       payload: user
+    }),
+    authenticatingUser: ()=>dispatch({
+      type: "AUTHENTICATING_USER"
     })
   }
 }
