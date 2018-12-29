@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import Sidebar from './Sidebar';
 import MainContentContainer from './MainContentContainer';
 import EntryContainer from './EntryContainer';
-import withAuth from '../hoc/withAuth'
+import withAuth from '../hoc/withAuth';
+import { connect } from 'react-redux';
 
 
 class UserPageContainer extends Component {
 
   state = {
-    showForm: false
+    showForm: false,
+    all: []
   }
 
   iconStyle = {
@@ -21,6 +23,14 @@ class UserPageContainer extends Component {
     })
   }
 
+  getAllEntries=()=>{
+    let entries = []
+    this.props.user.journals.map(j=>entries.push(j.entries))
+    this.setState({
+      all: entries.flat()
+    }, ()=>this.props.showAllEntries())
+  }
+
   render() {
     return (
       <div className="ui internally celled grid">
@@ -30,11 +40,11 @@ class UserPageContainer extends Component {
                 <div style={this.iconStyle}><i onClick={()=>this.showFormFn()} className="circular small plus icon"></i></div>
 
             </div>
-            <div>All entries</div>
+            <div onClick={()=>this.getAllEntries()}>All entries</div>
           </div>
           <div className="three wide column">
               <div className="ui small header">Entries</div>
-              <div>Photos</div>
+              <div>Photos<span style={this.iconStyle}></span></div>
           </div>
         </div>
         <div className="row">
@@ -42,7 +52,7 @@ class UserPageContainer extends Component {
             <Sidebar showForm={this.state.showForm} showFormFn={this.showFormFn}/>
           </div>
           <div className="three wide column">
-            <MainContentContainer/>
+            <MainContentContainer allEntriesArray={this.state.all}/>
           </div>
           <div className="eight wide column">
             <EntryContainer/>
@@ -53,5 +63,19 @@ class UserPageContainer extends Component {
   }
 }
 
+function mapStateToProps(state){
+  return {
+    user: state.user
+  }
+}
 
-export default withAuth(UserPageContainer)
+function mapDispatchToProps(dispatch){
+  return {
+    showAllEntries: (user)=> dispatch({
+      type: "SHOW_ALL_ENTRIES"
+    })
+  }
+}
+
+
+export default withAuth(connect(mapStateToProps, mapDispatchToProps)(UserPageContainer))
