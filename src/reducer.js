@@ -33,6 +33,8 @@ function reducer(state = initialState, action){
       return {...state, authenticatingUser: true}
     case "SHOW_ALL_ENTRIES":
       return {...state, allEntries: true, selectedJournal: null, selectedEntry: null}
+    case "SELECT_ENTRY_ALL_ENTRIES":
+      return {...state, selectedJournal: action.payload.journal_id, selectedEntry: action.payload.id, showEntry: true} 
     default:
       return state
   }
