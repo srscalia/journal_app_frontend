@@ -4,12 +4,13 @@ import TimelineEntry from './TimelineEntry';
 class TimelineAllEntries extends Component {
 
   renderAllEntries = ()=>{
-    return this.props.allEntriesArray.map(e=><TimelineEntry key={e.id} entry={e}/>)
+    return this.props.allEntries.map(e=><TimelineEntry key={e.id} entry={e}/>)
   }
 
   render() {
-    return (
-      this.renderAllEntries()
+    return (<div className="ui internally celled grid">
+      {this.renderAllEntries()}
+    </div>
     )
   }
 

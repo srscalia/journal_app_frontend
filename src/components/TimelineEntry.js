@@ -3,16 +3,16 @@ import { connect } from 'react-redux'
 
 const TimelineEntry = (props)=> {
 
-  let styleMe = ()=>{
+  let styleMe = () => {
     return {
       'backgroundColor': props.entry.id === props.selectedEntry ? '#A2D8C0' : '#FFFFFF'
     }
   }
 
-  let getDate = () =>{
+  let getDate = () => {
     return new Date(props.entry.date).getDate()
   }
-  let getMonth = () =>{
+  let getMonth = () => {
     let day;
     switch (new Date(props.entry.date).getMonth()) {
       case 0:
@@ -57,9 +57,23 @@ const TimelineEntry = (props)=> {
     return day
   }
 
+// on click, we want to check if allEntries is true
+// if it is, then we want to use props that are passed down to set
+// selectedJournal and selectedEntry per props and showEntry to true
+// else (allEntries is false and a journal is selected) and we want to use selectEntry as normal
+
+  let handleClick = () => {
+    if (props.allEntries) {
+      props.selectEntryAllEntries(props.entry)
+    }else {
+      props.selectEntry(props.entry.id)
+    }
+  }
+
+
 
   return (
-  <div className="row" style={styleMe()} onClick={()=>props.selectEntry(props.entry.id)}>
+  <div className="row" style={styleMe()} onClick={()=>handleClick()}>
     <div className="column">
       {props.entry.title}
       <div id="dateNumber"><span>{getDate()}</span><span id='dateMonth'>{getMonth()}</span></div>
@@ -71,7 +85,8 @@ const TimelineEntry = (props)=> {
 
 function mapStateToProps(state){
   return {
-    selectedEntry: state.selectedEntry
+    selectedEntry: state.selectedEntry,
+    allEntries: state.allEntries
   }
 
 }
@@ -81,6 +96,10 @@ function mapDispatchToProps(dispatch){
     selectEntry: (id)=> dispatch({
       type: "SELECT_ENTRY",
       payload: id
+    }),
+    selectEntryAllEntries: (entry) => dispatch({
+      type: "SELECT_ENTRY_ALL_ENTRIES",
+      payload: entry
     })
   }
 }
