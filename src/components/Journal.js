@@ -14,7 +14,7 @@ class Journal extends Component {
 
   styleMe = ()=>{
     return {
-      'backgroundColor': this.props.journal.id === this.props.selectedJournal ? '#D3D3D3' : '#FFFFFF'
+      'backgroundColor': this.props.journal.id === this.props.selectedJournal ? '#F5F5F5' : '#FFFFFF'
     }
   }
 
@@ -34,6 +34,7 @@ class Journal extends Component {
     event.preventDefault()
     this.editEntry()
   }
+
   editEntry = ()=>{
     fetch(`http://localhost:3000/api/v1/journals/${this.props.selectedJournal}`, {
       method: 'PATCH',

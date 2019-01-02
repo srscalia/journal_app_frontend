@@ -83,7 +83,7 @@ class EditEntry extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit} className="ui form">
+      <form id="viewEntry" onSubmit={this.handleSubmit} className="ui form">
         <div className="field">
           <input type="text" placeholder="Title" value={this.state.title} onChange={this.handleChangeFor('title')}></input>
           <textarea placeholder="A safe place your thoughts" value={this.state.body} onChange={this.handleChangeFor('body')}></textarea>
@@ -91,7 +91,7 @@ class EditEntry extends Component {
           <div>Location: {this.props.location}</div>
           <div>Date: {this.props.date}</div>
         </div>
-        <button type='submit' className="ui primary button">
+        <button type='submit' className="ui black primary button">
           Save
         </button>
         <button onClick={this.handleDiscard} className="ui button">

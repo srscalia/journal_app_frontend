@@ -37,8 +37,7 @@ class UserPageContainer extends Component {
         <div className="row">
           <div className="three wide column">
             <div className="ui small header">Journals
-                <div style={this.iconStyle}><i onClick={()=>this.showFormFn()} className="circular small plus icon"></i></div>
-
+                <div style={this.iconStyle}><i onClick={()=>this.showFormFn()} className="inverted blue add sign box icon"></i></div>
             </div>
             <div onClick={()=>this.getAllEntries()}>All entries</div>
           </div>

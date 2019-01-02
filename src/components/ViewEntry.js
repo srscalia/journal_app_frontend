@@ -5,10 +5,6 @@ import Image from './Image'
 
 class ViewEntry extends Component {
 
-  dateStyle = {
-    float: 'right'
-  };
-
   renderEntry = ()=>{
     if (this.props.selectedEntry) {
       let journal = this.props.user.journals.find(journal=>journal.id===this.props.selectedJournal)
@@ -28,11 +24,11 @@ class ViewEntry extends Component {
       <div id="viewEntry">
         {
           this.props.selectedEntry ?
-          <Fragment><h1>{entry.title}</h1>
+          <Fragment><h1>{entry.title}<button id='editButton' onClick={this.editClickHandler} className="ui button">Edit</button></h1>
+          <span id="date">Date: {entry.date}</span>
             <div id="body">{entry.body}</div>
             <Image selectedEntry={this.props.selectedEntry} entry={entry}/>
-            <div>Location: {entry.location} <span style={this.dateStyle}>Date: {entry.date}</span></div>
-            <div><button id='editButton' onClick={this.editClickHandler} className="ui primary button">Edit</button></div>
+            <div>Location: {entry.location}</div>
           </Fragment> :
           <NewEntryContainer/>
         }

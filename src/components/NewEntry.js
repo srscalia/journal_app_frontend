@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 
 class NewEntry extends Component {
@@ -6,11 +6,19 @@ class NewEntry extends Component {
 
   render() {
     return (
-        <i onClick={this.props.showNewEntryForm} className="circular small plus icon"></i>
+      <Fragment>
+        {this.props.allEntries===false && this.props.selectedJournal===null ? null : <i onClick={this.props.showNewEntryForm} className="inverted blue add sign box icon"></i>}
+      </Fragment>
     )
   }
 }
 
+function mapStateToProps(state){
+  return {
+    allEntries: state.allEntries,
+    selectedJournal: state.selectedJournal
+  }
+}
 
 function mapDispatchToProps(dispatch){
   return {
@@ -20,4 +28,4 @@ function mapDispatchToProps(dispatch){
     })
   }
 }
-export default connect(null, mapDispatchToProps)(NewEntry)
+export default connect(mapStateToProps, mapDispatchToProps)(NewEntry)

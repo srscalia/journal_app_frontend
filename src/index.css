@@ -1,14 +1,17 @@
 #viewEntry {
-  margin-left: 1em;
+  margin-left: 4em;
+  margin-top: 1em
 }
 #body {
-  margin-bottom: 1em;
+  margin-top: 2em;
+  margin-bottom: 2em;
 }
 #photo {
   margin-bottom: 1em;
 }
 #editButton {
   margin-top: 1em;
+  float: right
 }
 #dateNumber {
   font-size: 30px;
@@ -26,5 +29,5 @@
   padding-right: 0px
 }
 #date {
-  text-align: center
+  color: #c0c1c2
 }
