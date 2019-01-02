@@ -28,7 +28,7 @@ class UserPageContainer extends Component {
     this.props.user.journals.map(j=>entries.push(j.entries))
     this.setState({
       all: entries.flat()
-    }, ()=>this.props.showAllEntries())
+    }, () => this.props.showAllEntries())
   }
 
   render() {
