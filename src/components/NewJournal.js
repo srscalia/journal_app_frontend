@@ -57,7 +57,7 @@ class NewJournal extends Component {
         <div className="field">
           <input type="text" placeholder="New Journal" value={this.state.theme} onChange={this.handleChangeFor}></input>
         </div>
-        <button type='submit' className="small ui primary button">
+        <button id='newJournalButton' type='submit' className="small ui primary button">
           Save
         </button>
         <button onClick={this.handleDiscard} className="small ui button">

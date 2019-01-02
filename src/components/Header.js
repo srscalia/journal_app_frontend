@@ -9,10 +9,10 @@ const Header = ()=> {
   }
 
   const iconStyle = {
-    height: '40px',
-    width: '40px',
-    marginTop: '18px',
-    marginBottom: '15px',
+    height: '42px',
+    width: '42px',
+    marginTop: '22px',
+    marginBottom: '18px',
     marginLeft: '30px'
   }
 

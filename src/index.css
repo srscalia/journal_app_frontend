@@ -31,3 +31,22 @@
 #date {
   color: #c0c1c2
 }
+#newJournalButton {
+  background-color: #54c8ff
+}
+#newEntryButton {
+  background-color: #54c8ff
+}
+#editEntryButton {
+  background-color: #54c8ff
+}
+#editJournalButton {
+  background-color: #54c8ff
+}
+
+/* [title~='hover']:hover {
+  background: #ffff00;
+} */
+#location {
+  color: #c0c1c2
+}

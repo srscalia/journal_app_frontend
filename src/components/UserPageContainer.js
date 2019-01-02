@@ -36,13 +36,13 @@ class UserPageContainer extends Component {
       <div id='userPageContainer'className="ui internally celled grid">
         <div className="row">
           <div className="three wide column">
-            <div className="ui small header">Journals
+            <div className="ui small header">JOURNALS
                 <div style={this.iconStyle}><i onClick={()=>this.showFormFn()} className="inverted blue add sign box icon"></i></div>
             </div>
             <div onClick={()=>this.getAllEntries()}>All entries</div>
           </div>
           <div className="three wide column">
-              <div className="ui small header">Entries</div>
+              <div className="ui small header">ENTRIES</div>
               <div>Photos<span style={this.iconStyle}></span></div>
           </div>
         </div>

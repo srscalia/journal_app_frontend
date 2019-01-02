@@ -102,16 +102,18 @@ class Journal extends Component {
             <div className="field">
               <input onChange={this.handleChangeFor} type="text" placeholder="Theme" value={this.state.theme}></input>
             </div>
-            <button className="mini ui button primary" type="submit">Submit</button>
-            <button onClick={this.handleDeleteJournal} className="mini ui button">
+            <div class="mini ui buttons">
+              <button id='editJournalButton' className="mini ui button primary" type="submit">Submit</button>
+              <button onClick={this.handleDeleteJournal} className="mini ui button">
                 Delete
               </button>
+            </div>
           </form>
         </div>
       </div> : this.props.journal.id === this.props.selectedJournal
        ? <div className="row" style={this.styleMe()} onClick={this.handleClick}>
          <div className="column">
-           {this.props.journal.theme}
+          {this.props.journal.theme}
            <div style={this.rowStyle}><i className="circular small wrench icon" onClick={()=>this.handleEditJournal()}></i></div>
          </div>
        </div> : <div className="row" style={this.styleMe()} onClick={this.handleClick}>

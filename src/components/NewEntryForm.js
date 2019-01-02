@@ -6,7 +6,7 @@ class NewEntryForm extends Component {
   state={
     title: '',
     body: '',
-    photo: null,
+    photo: '',
     location: '',
     date: new Date().toString()
   }
@@ -100,13 +100,15 @@ class NewEntryForm extends Component {
         </div>
         <div>Location: {this.state.location}</div>
         <div>Date: {this.state.date}</div>
-        <button onClick={this.handleClick} id="upload_widget" className="cloudinary-button ui button">Upload files</button>
-        <button type='submit' className="ui primary button">
-          Save
-        </button>
-        <button className="ui button" onClick={this.handleDiscard}>
-          Discard
-        </button>
+        <div class="ui buttons">
+          <button onClick={this.handleClick} id="upload_widget" className="cloudinary-button ui button">Image</button>
+          <button id='newEntryButton' type='submit' className="ui primary button">
+            Save
+          </button>
+          <button className="ui button" onClick={this.handleDiscard}>
+            Discard
+          </button>
+        </div>
       </form>
     )
   }

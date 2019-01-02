@@ -91,15 +91,17 @@ class EditEntry extends Component {
           <div>Location: {this.props.location}</div>
           <div>Date: {this.props.date}</div>
         </div>
-        <button type='submit' className="ui black primary button">
-          Save
-        </button>
-        <button onClick={this.handleDiscard} className="ui button">
-          Discard
-        </button>
-        <button onClick={this.handleDelete} className="ui button">
-          Delete
-        </button>
+        <div class="ui buttons">
+          <button id='editEntryButton' type='submit' className="ui black primary button">
+            Save
+          </button>
+          <button onClick={this.handleDiscard} className="ui button">
+            Discard
+          </button>
+          <button onClick={this.handleDelete} className="ui button">
+            Delete
+          </button>
+        </div>
       </form>
     )
   }

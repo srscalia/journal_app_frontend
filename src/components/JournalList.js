@@ -18,7 +18,7 @@ class JournalList extends Component {
   render() {
     return (
       <Fragment>
-        <div className="ui internally celled grid">
+        <div id="parent" className="ui internally celled grid">
           {this.renderJournals()}
         </div>
     </Fragment>
