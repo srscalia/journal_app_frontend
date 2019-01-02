@@ -95,11 +95,11 @@ class NewEntryForm extends Component {
     return (
       <form onSubmit={this.handleSubmit} className="ui form">
         <div className="field">
-          <input type="text" placeholder="Title" value={this.state.title} onChange={this.handleChangeFor('title')}></input>
+          <input id='titleNew' type="text" placeholder="Title" value={this.state.title} onChange={this.handleChangeFor('title')}></input>
           <textarea placeholder="A safe place your thoughts" value={this.state.body} onChange={this.handleChangeFor('body')}></textarea>
         </div>
-        <div>Location: {this.state.location}</div>
-        <div>Date: {this.state.date}</div>
+        <div id='locationNew'>Location: {this.state.location}</div>
+        <div id='dateNew'> Date: {this.state.date}</div>
         <div class="ui buttons">
           <button onClick={this.handleClick} id="upload_widget" className="cloudinary-button ui button">Image</button>
           <button id='newEntryButton' type='submit' className="ui primary button">

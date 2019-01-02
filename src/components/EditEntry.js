@@ -85,11 +85,11 @@ class EditEntry extends Component {
     return (
       <form id="viewEntry" onSubmit={this.handleSubmit} className="ui form">
         <div className="field">
-          <input type="text" placeholder="Title" value={this.state.title} onChange={this.handleChangeFor('title')}></input>
+          <input id='titleEdit' type="text" placeholder="Title" value={this.state.title} onChange={this.handleChangeFor('title')}></input>
           <textarea placeholder="A safe place your thoughts" value={this.state.body} onChange={this.handleChangeFor('body')}></textarea>
-          <input placeholder="Photo" type="text" value={this.state.photo} onChange={this.handleChangeFor('photo')}></input>
-          <div>Location: {this.props.location}</div>
-          <div>Date: {this.props.date}</div>
+          <input id='editPhotoInput' placeholder="Photo" type="text" value={this.state.photo} onChange={this.handleChangeFor('photo')}></input>
+          <div id='locationEdit'>Location: {this.props.location}</div>
+          <div id='dateEdit' >Date: {this.props.date}</div>
         </div>
         <div className="ui buttons">
           <button id='editEntryButton' type='submit' className="ui black primary button">
