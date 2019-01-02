@@ -103,7 +103,7 @@ class Journal extends Component {
             <div className="field">
               <input onChange={this.handleChangeFor} type="text" placeholder="Theme" value={this.state.theme}></input>
             </div>
-            <div class="mini ui buttons">
+            <div className="mini ui buttons">
               <button id='editJournalButton' className="mini ui button primary" type="submit">Submit</button>
               <button onClick={this.handleDeleteJournal} className="mini ui button">
                 Delete

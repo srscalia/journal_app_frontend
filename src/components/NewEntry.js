@@ -7,7 +7,7 @@ class NewEntry extends Component {
   render() {
     return (
       <Fragment>
-        {this.props.allEntries===false && this.props.selectedJournal===null ? null : <button class="circular inverted ui icon button"><i onClick={this.props.showNewEntryForm} className="inverted blue home add sign box icon"></i></button>}
+        {this.props.allEntries===false && this.props.selectedJournal===null ? null : <button className="circular inverted ui icon button"><i onClick={this.props.showNewEntryForm} className="inverted blue home add sign box icon"></i></button>}
       </Fragment>
     )
   }

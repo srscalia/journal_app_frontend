@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react'
 import ViewEntry from './ViewEntry';
 import NewEntryContainter from './NewEntryContainer';
 import EditEntry from './EditEntry';
+import PhotoGallery from './PhotoGallery';
 import { connect } from 'react-redux';
 
 class EntryContainer extends Component {
@@ -41,7 +42,11 @@ class EntryContainer extends Component {
       return (
         <EditEntry title={this.state.title} body={this.state.body} photo={this.state.photo} location={this.state.location} date={this.state.date}/>
       )
-    } else {
+    } else if (this.props.showPhotos) {
+      return (
+        <PhotoGallery photos={this.props.photos}/>
+      )
+    }else {
       return (
         <NewEntryContainter/>
       )
@@ -63,7 +68,8 @@ function mapStateToProps(state){
     selectedJournal: state.selectedJournal,
     selectedEntry: state.selectedEntry,
     showEntry: state.showEntry,
-    showEntryEditForm: state.showEntryEditForm
+    showEntryEditForm: state.showEntryEditForm,
+    showPhotos: state.showPhotos
   }
 }
 
