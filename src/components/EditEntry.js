@@ -91,7 +91,7 @@ class EditEntry extends Component {
           <div>Location: {this.props.location}</div>
           <div>Date: {this.props.date}</div>
         </div>
-        <div class="ui buttons">
+        <div className="ui buttons">
           <button id='editEntryButton' type='submit' className="ui black primary button">
             Save
           </button>

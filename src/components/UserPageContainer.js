@@ -10,7 +10,8 @@ class UserPageContainer extends Component {
 
   state = {
     showForm: false,
-    all: []
+    all: [],
+    photos: []
   }
 
   iconStyle = {
@@ -37,6 +38,28 @@ class UserPageContainer extends Component {
     }
   }
 
+  grabPhotos = () => {
+    if (this.props.allEntries) {
+      let imageEntries = this.state.all.filter(entry=>entry.photo !== '')
+      let images=[]
+      imageEntries.map(entry=>images.push(entry.photo))
+      this.setState({
+        photos: imageEntries
+      }, ()=> this.props.showPhotos())
+    } else if (this.props.selectedJournal) {
+      let journal = this.props.user.journals.find(journal=>journal.id===this.props.selectedJournal)
+      let imageEntries = journal.entries.filter(entry=>entry.photo !== '')
+      this.setState({
+        photos: imageEntries
+      }, ()=> this.props.showPhotos())
+    }else {
+      return null
+    }
+
+    // update global store with showPhotos
+  }
+
+
   render() {
     return (
       <div id='userPageContainer'className="ui internally celled grid">
@@ -49,7 +72,7 @@ class UserPageContainer extends Component {
           </div>
           <div className="three wide column">
               <div className="ui small header">ENTRIES</div>
-              <div>Photos<span style={this.iconStyle}></span></div>
+              <div onClick={()=>this.grabPhotos()}>Photos<span style={this.iconStyle}></span></div>
           </div>
         </div>
         <div className="row">
@@ -60,7 +83,7 @@ class UserPageContainer extends Component {
             <MainContentContainer allEntriesArray={this.state.all}/>
           </div>
           <div className="eight wide column">
-            <EntryContainer/>
+            <EntryContainer photos={this.state.photos}/>
           </div>
         </div>
       </div>
@@ -71,7 +94,8 @@ class UserPageContainer extends Component {
 function mapStateToProps(state){
   return {
     user: state.user,
-    allEntries: state.allEntries
+    allEntries: state.allEntries,
+    selectedJournal: state.selectedJournal
   }
 }
 
@@ -79,6 +103,9 @@ function mapDispatchToProps(dispatch){
   return {
     showAllEntries: (user)=> dispatch({
       type: "SHOW_ALL_ENTRIES"
+    }),
+    showPhotos: ()=> dispatch({
+      type: "SHOW_PHOTOS"
     })
   }
 }

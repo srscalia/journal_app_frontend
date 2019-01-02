@@ -7,14 +7,15 @@ const initialState = {
   showForm: false,
   showEntry: true,
   showEntryEditForm: false,
-  allEntries: false
+  allEntries: false,
+  showPhotos: false
 }
 
 function reducer(state = initialState, action){
 
   switch (action.type) {
     case "SELECT_JOURNAL":
-        return {...state, selectedJournal: action.payload, selectedEntry: null, showForm: false, allEntries: false}
+        return {...state, selectedJournal: action.payload, selectedEntry: null, showForm: false, allEntries: false, showPhotos: false}
     case "SELECT_ENTRY":
       return {...state, selectedEntry: action.payload, showEntry: true}
     case "SHOW_FORM":
@@ -34,7 +35,9 @@ function reducer(state = initialState, action){
     case "SHOW_ALL_ENTRIES":
       return {...state, allEntries: true, selectedJournal: null, selectedEntry: null}
     case "SELECT_ENTRY_ALL_ENTRIES":
-      return {...state, selectedJournal: action.payload.journal_id, selectedEntry: action.payload.id, showEntry: true} 
+      return {...state, selectedJournal: action.payload.journal_id, selectedEntry: action.payload.id, showEntry: true}
+    case "SHOW_PHOTOS":
+        return {...state, showEntry: false, showPhotos: true}
     default:
       return state
   }
