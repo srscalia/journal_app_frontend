@@ -17,7 +17,7 @@ function reducer(state = initialState, action){
     case "SELECT_JOURNAL":
         return {...state, selectedJournal: action.payload, selectedEntry: null, showForm: false, allEntries: false, showPhotos: false}
     case "SELECT_ENTRY":
-      return {...state, selectedEntry: action.payload, showEntry: true}
+      return {...state, selectedEntry: action.payload, showEntry: true, showPhotos: false}
     case "SHOW_FORM":
       return {...state, showForm: action.payload}
     case "LOGIN_USER":
@@ -33,11 +33,16 @@ function reducer(state = initialState, action){
     case "AUTHENTICATING_USER":
       return {...state, authenticatingUser: true}
     case "SHOW_ALL_ENTRIES":
-      return {...state, allEntries: true, selectedJournal: null, selectedEntry: null}
+      return {...state, allEntries: true, selectedJournal: null, selectedEntry: null, showPhotos: false}
     case "SELECT_ENTRY_ALL_ENTRIES":
-      return {...state, selectedJournal: action.payload.journal_id, selectedEntry: action.payload.id, showEntry: true}
+      return {...state, selectedJournal: action.payload.journal_id, selectedEntry: action.payload.id, showEntry: true, showPhotos: false}
     case "SHOW_PHOTOS":
-        return {...state, showEntry: false, showPhotos: true}
+        return {...state, showEntry: false, showPhotos: true, selectedEntry: null}
+    case "SHOW_ALL_PHOTOS_UNSELECT_JOURNAL":
+        return {...state, showEntry: false, showPhotos: true, selectedEntry: null, selectedJournal: null}
+    case "SHOW_ALL_PHOTOS_UPON_LOGIN":
+        return {...state, allEntries: true, selectedJournal: null, selectedEntry: null, showPhotos: true, showEntry: false}
+
     default:
       return state
   }

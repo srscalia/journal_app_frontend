@@ -38,20 +38,44 @@ class UserPageContainer extends Component {
     }
   }
 
+  styleMePhotos = ()=>{
+    return {
+      'color': this.props.showPhotoss ? '#54c8ff' : '#808080'
+    }
+  }
+
   grabPhotos = () => {
-    if (this.props.allEntries) {
+    if (this.props.showPhotoss && this.props.allEntries ) {
+        let imageEntries = this.state.all.filter(entry=>entry.photo !== '')
+        this.setState({
+          photos: imageEntries
+        }, ()=> this.props.showPhotos())
+    } else if (this.props.allEntries===false && this.props.selectedJournal===null) {
+      console.log('hi')
+        let entries = []
+        this.props.user.journals.map(j=>entries.push(j.entries))
+        this.setState({
+          all: entries.flat()
+        }, this.setState({
+          photos: this.state.all.filter(entry=>entry.photo !== '')
+        }, ()=> this.props.showAllPhotosUponLogin()))
+
+    } else if (this.props.allEntries && this.props.selectedJournal) {
       let imageEntries = this.state.all.filter(entry=>entry.photo !== '')
-      let images=[]
-      imageEntries.map(entry=>images.push(entry.photo))
       this.setState({
         photos: imageEntries
-      }, ()=> this.props.showPhotos())
+      }, ()=> this.props.showAllPhotosUnselectJournal())
+    }  else if (this.props.allEntries) {
+        let imageEntries = this.state.all.filter(entry=>entry.photo !== '')
+        this.setState({
+          photos: imageEntries
+        }, ()=> this.props.showPhotos())
     } else if (this.props.selectedJournal) {
-      let journal = this.props.user.journals.find(journal=>journal.id===this.props.selectedJournal)
-      let imageEntries = journal.entries.filter(entry=>entry.photo !== '')
-      this.setState({
-        photos: imageEntries
-      }, ()=> this.props.showPhotos())
+        let journal = this.props.user.journals.find(journal=>journal.id===this.props.selectedJournal)
+        let imageEntries = journal.entries.filter(entry=>entry.photo !== '')
+        this.setState({
+          photos: imageEntries
+        }, ()=> this.props.showPhotos())
     }else {
       return null
     }
@@ -72,7 +96,7 @@ class UserPageContainer extends Component {
           </div>
           <div className="three wide column">
               <div className="ui small header">ENTRIES</div>
-              <div onClick={()=>this.grabPhotos()}>Photos<span style={this.iconStyle}></span></div>
+              <div style={this.styleMePhotos()} onClick={()=>this.grabPhotos()}>Photos<span style={this.iconStyle}></span></div>
           </div>
         </div>
         <div className="row">
@@ -82,7 +106,7 @@ class UserPageContainer extends Component {
           <div className="three wide column">
             <MainContentContainer allEntriesArray={this.state.all}/>
           </div>
-          <div className="eight wide column">
+          <div className="nine wide column">
             <EntryContainer photos={this.state.photos}/>
           </div>
         </div>
@@ -95,7 +119,8 @@ function mapStateToProps(state){
   return {
     user: state.user,
     allEntries: state.allEntries,
-    selectedJournal: state.selectedJournal
+    selectedJournal: state.selectedJournal,
+    showPhotoss: state.showPhotos
   }
 }
 
@@ -106,6 +131,12 @@ function mapDispatchToProps(dispatch){
     }),
     showPhotos: ()=> dispatch({
       type: "SHOW_PHOTOS"
+    }),
+    showAllPhotosUnselectJournal: ()=>dispatch({
+      type: "SHOW_ALL_PHOTOS_UNSELECT_JOURNAL"
+    }),
+    showAllPhotosUponLogin: ()=>dispatch({
+      type: "SHOW_ALL_PHOTOS_UPON_LOGIN"
     })
   }
 }
