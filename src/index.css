@@ -15,5 +15,16 @@
   float: right;
 }
 #dateMonth {
-  font-size: 10px;
+  font-size: 14px;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+#userPageContainer {
+  padding-left: 25px
+}
+#tl {
+  padding-right: 0px
+}
+#date {
+  text-align: center
 }

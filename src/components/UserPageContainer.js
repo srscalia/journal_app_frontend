@@ -33,7 +33,7 @@ class UserPageContainer extends Component {
 
   render() {
     return (
-      <div className="ui internally celled grid">
+      <div id='userPageContainer'className="ui internally celled grid">
         <div className="row">
           <div className="three wide column">
             <div className="ui small header">Journals

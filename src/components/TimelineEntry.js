@@ -5,7 +5,7 @@ const TimelineEntry = (props)=> {
 
   let styleMe = ()=>{
     return {
-      'backgroundColor': props.entry.id === props.selectedEntry ? '#A2D8C0' : '#FFFFFF'
+      'backgroundColor': props.entry.id === props.selectedEntry ? '#D3D3D3' : '#FFFFFF'
     }
   }
 
@@ -40,7 +40,7 @@ const TimelineEntry = (props)=> {
         day = "Aug";
         break;
       case 8:
-        day = "Sept";
+        day = "Sep";
         break;
       case 9:
         day = "Oct";
@@ -60,9 +60,9 @@ const TimelineEntry = (props)=> {
 
   return (
   <div className="row" style={styleMe()} onClick={()=>props.selectEntry(props.entry.id)}>
-    <div className="column">
+    <div id='tl' className="column">
       {props.entry.title}
-      <div id="dateNumber"><span>{getDate()}</span><span id='dateMonth'>{getMonth()}</span></div>
+      <div id="dateNumber"><span>{getDate()}</span><div id='dateMonth'>{getMonth()}</div></div>
     </div>
   </div>
   )

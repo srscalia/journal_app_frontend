@@ -14,7 +14,7 @@ class Journal extends Component {
 
   styleMe = ()=>{
     return {
-      'backgroundColor': this.props.journal.id === this.props.selectedJournal ? '#A2D8C0' : '#FFFFFF'
+      'backgroundColor': this.props.journal.id === this.props.selectedJournal ? '#D3D3D3' : '#FFFFFF'
     }
   }
 

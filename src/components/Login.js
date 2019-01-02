@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 
 class Login extends Component {
 
-
   state = {
     username:'',
     password: ''
