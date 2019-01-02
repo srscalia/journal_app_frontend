@@ -8,7 +8,7 @@ class TimelineAllEntries extends Component {
   }
 
   render() {
-    return (<div className="ui internally celled grid">
+    return (<div id='allEntries' className="ui internally celled grid">
       {this.renderAllEntries()}
     </div>
     )

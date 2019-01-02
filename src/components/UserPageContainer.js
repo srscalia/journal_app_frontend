@@ -31,15 +31,21 @@ class UserPageContainer extends Component {
     }, () => this.props.showAllEntries())
   }
 
+  styleMe = ()=>{
+    return {
+      'color': this.props.allEntries ? '#54c8ff' : '#808080'
+    }
+  }
+
   render() {
     return (
       <div id='userPageContainer'className="ui internally celled grid">
         <div className="row">
           <div className="three wide column">
             <div className="ui small header">JOURNALS
-                <div style={this.iconStyle}><i onClick={()=>this.showFormFn()} className="inverted blue add sign box icon"></i></div>
+                <div style={this.iconStyle}><button className="circular inverted ui icon button"><i onClick={()=>this.showFormFn()} className="inverted blue add sign box icon"></i></button></div>
             </div>
-            <div onClick={()=>this.getAllEntries()}>All entries</div>
+            <div style={this.styleMe()} onClick={()=>this.getAllEntries()}>All entries</div>
           </div>
           <div className="three wide column">
               <div className="ui small header">ENTRIES</div>
@@ -64,7 +70,8 @@ class UserPageContainer extends Component {
 
 function mapStateToProps(state){
   return {
-    user: state.user
+    user: state.user,
+    allEntries: state.allEntries
   }
 }
 

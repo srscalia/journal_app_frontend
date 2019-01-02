@@ -5,7 +5,8 @@ const TimelineEntry = (props)=> {
 
   let styleMe = () => {
     return {
-      'backgroundColor': props.entry.id === props.selectedEntry ? '#F5F5F5' : '#FFFFFF'
+      'backgroundColor': props.entry.id === props.selectedEntry ? '#F5F5F5' : '#FFFFFF',
+      padding: '2px'
     }
   }
 

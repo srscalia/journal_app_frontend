@@ -1,6 +1,10 @@
 #viewEntry {
   margin-left: 4em;
-  margin-top: 1em
+  margin-top: 1em;
+  height: 715px;
+  width: 900px;
+  overflow: auto;
+  padding-right: 3em;
 }
 #body {
   margin-top: 2em;
@@ -11,6 +15,7 @@
 }
 #editButton {
   margin-top: 1em;
+  margin-right: 3em;
   float: right
 }
 #dateNumber {
@@ -21,6 +26,7 @@
   font-size: 14px;
   margin-top: 5px;
   margin-left: 5px;
+
 }
 #userPageContainer {
   padding-left: 25px
@@ -49,4 +55,26 @@
 } */
 #location {
   color: #c0c1c2
+}
+
+#parent {
+  overflow: auto;
+}
+
+#allEntries {
+  height: 700px;
+  width: 100%;
+  overflow: auto;
+}
+
+#journalEntries {
+
+}
+
+#header {
+  background-color: #F5F5F5;
+  border-bottom: none;
+}
+#journalEditButton {
+  background-color: #F5F5F5
 }

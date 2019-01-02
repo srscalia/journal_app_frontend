@@ -33,7 +33,7 @@ class TimelineList extends Component {
   }
 
   render () {
-    return(<div className="ui internally celled grid">
+    return(<div id="journalEntries" className="ui internally celled grid">
       {this.renderEntries()}
     </div>)
   }

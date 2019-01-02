@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import TimelineList from './TimelineList';
 import TimelineAllEntries from './TimelineAllEntries';
 import { connect } from 'react-redux';
@@ -6,9 +6,9 @@ import { connect } from 'react-redux';
 class MainContentContainer extends Component {
   render() {
     return (
-      <div>
+      <Fragment>
         {this.props.allEntries ? <TimelineAllEntries allEntries={this.props.allEntriesArray}/> : <TimelineList/>}
-      </div>
+      </Fragment>
     )
   }
 }
