@@ -9,10 +9,10 @@ class TimelineList extends Component {
     return entries.sort(function(a,b){
       let dateA = a.id // ignore upper and lowercase
       let dateB = b.id // ignore upper and lowercase
-      if (dateA < dateB) {
+      if (dateB < dateA) {
         return -1;
       }
-      if (dateA > dateB) {
+      if (dateB > dateA) {
         return 1;
       }
         return 0;
