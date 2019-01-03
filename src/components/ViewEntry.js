@@ -37,12 +37,13 @@ class ViewEntry extends Component {
       <div id="viewEntry">
         {
           this.props.selectedEntry ?
-          <Fragment><h1>{entry.title}<button id='editButton' onClick={this.editClickHandler} className="mini ui button">Edit</button></h1>
-          <span id="date">Date: {manipulateDate()}</span>
+          <div onDoubleClick={this.editClickHandler}>
+            <h1>{entry.title}</h1>
+            <span id="date">Date: {manipulateDate()}</span>
             <div id="body">{entry.body}</div>
             <Image selectedEntry={this.props.selectedEntry} entry={entry}/>
             <div id='location'>Location: {entry.location}</div>
-          </Fragment> :
+          </div> :
           <NewEntryContainer/>
         }
 

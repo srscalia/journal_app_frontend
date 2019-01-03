@@ -44,7 +44,7 @@ function reducer(state = initialState, action){
     case "SHOW_ALL_PHOTOS_UPON_LOGIN":
         return {...state, allEntries: true, selectedJournal: null, selectedEntry: null, showPhotos: true, showEntry: false}
     case "CHANGE_EDIT_JOURNAL":
-      return {...state, editJournal: true, selectedJournal: action.payload, selectedEntry: null, allEntries: false, showPhotos: false}
+      return {...state, editJournal: !state.editJournal, selectedJournal: action.payload, selectedEntry: null, allEntries: false, showPhotos: false}
 
     default:
       return state
