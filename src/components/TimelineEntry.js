@@ -10,6 +10,18 @@ const TimelineEntry = (props)=> {
     }
   }
 
+  let monthStyling = () => {
+    if (getDate().toString().length===1) {
+      return {'fontSize': '14px',
+      'marginTop': '5px',
+      'marginLeft': '0px'}
+    } else {
+      return {'fontSize': '14px',
+      'marginTop': '5px',
+      'marginLeft': '5px'}
+    }
+  }
+
   let getDate = () => {
     return new Date(props.entry.date).getDate()
   }
@@ -77,7 +89,7 @@ const TimelineEntry = (props)=> {
   <div className="row" style={styleMe()} onClick={()=>handleClick()}>
     <div className="column">
       {props.entry.title}
-      <div id="dateNumber"><span>{getDate()}</span><div id='dateMonth'>{getMonth()}</div></div>
+      <div id="dateNumber"><span>{getDate()}</span><div style={monthStyling()} id='dateMonth'>{getMonth()}</div></div>
     </div>
   </div>
   )

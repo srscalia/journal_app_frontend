@@ -100,7 +100,7 @@ class NewEntryForm extends Component {
         </div>
         <div id='locationNew'>Location: {this.state.location}</div>
         <div id='dateNew'> Date: {this.state.date}</div>
-        <div class="ui buttons">
+        <div className="ui buttons">
           <button onClick={this.handleClick} id="upload_widget" className="cloudinary-button ui button">Image</button>
           <button id='newEntryButton' type='submit' className="ui primary button">
             Save

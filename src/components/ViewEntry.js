@@ -20,12 +20,25 @@ class ViewEntry extends Component {
 
   render() {
     let entry = this.renderEntry()
+    let manipulateDate = ()=> {
+      let months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+      let month = months[new Date(entry.date).getMonth()]
+      let days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+      let day = days[new Date(entry.date).getDay()]
+      let date = new Date(entry.date).getDate().toString()
+      let year = new Date(entry.date).getFullYear().toString()
+      let time = new Date(entry.date).toLocaleTimeString().split(":");
+      let updatedTime = time[0]+':'+time[1]
+      let ampm = new Date(entry.date).toLocaleTimeString().slice(-2)
+      let formattedDate = day + ', ' + month + ' ' + date + ', ' + year + ' at ' + updatedTime + ' ' + ampm
+    return formattedDate
+    }
     return (
       <div id="viewEntry">
         {
           this.props.selectedEntry ?
           <Fragment><h1>{entry.title}<button id='editButton' onClick={this.editClickHandler} className="mini ui button">Edit</button></h1>
-          <span id="date">Date: {entry.date}</span>
+          <span id="date">Date: {manipulateDate()}</span>
             <div id="body">{entry.body}</div>
             <Image selectedEntry={this.props.selectedEntry} entry={entry}/>
             <div id='location'>Location: {entry.location}</div>
