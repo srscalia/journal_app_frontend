@@ -13,20 +13,12 @@
 #photo {
   margin-bottom: 1em;
 }
-#editButton {
-  margin-top: 1em;
-  margin-right: 3em;
-  float: right
-}
+
 #dateNumber {
   font-size: 30px;
   float: right;
 }
-/* #dateMonth {
-  font-size: 14px;
-  margin-top: 5px;
-  margin-left: 5px;
-} */
+
 #userPageContainer {
   padding-left: 25px
 }
@@ -42,16 +34,15 @@
 #newEntryButton {
   background-color: #54c8ff
 }
-#editEntryButton {
-  background-color: #54c8ff
-}
-#editJournalButton {
-  background-color: #54c8ff
+
+#allEntriesTitle:hover {
+  font-weight: bold;
 }
 
-/* [title~='hover']:hover {
-  background: #ffff00;
-} */
+#allPhotosTitle:hover {
+  font-weight: bold;
+}
+
 #location {
   color: #c0c1c2
 }
@@ -76,6 +67,13 @@
 }
 #journalEditButton {
   background-color: #F5F5F5
+}
+#editJournalButton {
+  background-color: #54c8ff
+}
+
+#editEntryButton {
+  background-color: #54c8ff
 }
 
 .gallery {

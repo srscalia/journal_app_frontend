@@ -92,11 +92,11 @@ class UserPageContainer extends Component {
             <div className="ui small header">JOURNALS
                 <div style={this.iconStyle}><button className="circular inverted ui icon button"><i onClick={()=>this.showFormFn()} className="inverted blue add sign box icon"></i></button></div>
             </div>
-            <div style={this.styleMe()} onClick={()=>this.getAllEntries()}>All entries</div>
+            <div id='allEntriesTitle' style={this.styleMe()} onClick={()=>this.getAllEntries()}>All entries</div>
           </div>
           <div className="three wide column">
               <div className="ui small header">ENTRIES</div>
-              <div style={this.styleMePhotos()} onClick={()=>this.grabPhotos()}>Photos<span style={this.iconStyle}></span></div>
+              <div id='allPhotosTitle' style={this.styleMePhotos()} onClick={()=>this.grabPhotos()}>Photos<span style={this.iconStyle}></span></div>
           </div>
         </div>
         <div className="row">

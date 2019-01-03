@@ -16,9 +16,9 @@ function reducer(state = initialState, action){
 
   switch (action.type) {
     case "SELECT_JOURNAL":
-        return {...state, selectedJournal: action.payload, selectedEntry: null, showForm: false, allEntries: false, showPhotos: false, editJournal: false}
+        return {...state, selectedJournal: action.payload, selectedEntry: null, showForm: false, allEntries: false, showPhotos: false, editJournal: false, showEntryEditForm: false}
     case "SELECT_ENTRY":
-      return {...state, selectedEntry: action.payload, showEntry: true, showPhotos: false}
+      return {...state, selectedEntry: action.payload, showEntry: true, showPhotos: false, editJournal: false}
     case "SHOW_FORM":
       return {...state, showForm: action.payload}
     case "LOGIN_USER":
