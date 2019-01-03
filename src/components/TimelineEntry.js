@@ -5,7 +5,7 @@ const TimelineEntry = (props)=> {
 
   let styleMe = () => {
     return {
-      'backgroundColor': props.entry.id === props.selectedEntry ? '#F5F5F5' : '#FFFFFF',
+      'backgroundColor': props.entry.id === props.selectedEntry ? '#F5F5F5' : null,
       padding: '2px'
     }
   }
@@ -86,7 +86,7 @@ const TimelineEntry = (props)=> {
 
 
   return (
-  <div className="row" style={styleMe()} onClick={()=>handleClick()}>
+  <div className="row shelby" style={styleMe()} onClick={()=>handleClick()}>
     <div className="column">
       {props.entry.title}
       <div id="dateNumber"><span>{getDate()}</span><div style={monthStyling()} id='dateMonth'>{getMonth()}</div></div>

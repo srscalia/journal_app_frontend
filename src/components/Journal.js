@@ -14,7 +14,7 @@ class Journal extends Component {
 
   styleMe = ()=>{
     return {
-      'backgroundColor': this.props.journal.id === this.props.selectedJournal ? '#F5F5F5' : '#FFFFFF',
+      'backgroundColor': this.props.journal.id === this.props.selectedJournal ? '#F5F5F5' : null,
       padding: '14px'
     }
   }
@@ -111,15 +111,10 @@ class Journal extends Component {
             </div>
           </form>
         </div>
-      </div> : this.props.journal.id === this.props.selectedJournal
-       ? <div className="row" style={this.styleMe()} onClick={this.handleClick}>
+      </div> : <div className="row shelby" style={this.styleMe()} onClick={this.handleClick} onDoubleClick={()=>this.handleEditJournal()}>
          <div className="column">
           {this.props.journal.theme}
-           <div style={this.rowStyle}><button id='journalEditButton' className='ui inverted grey circular icon mini button'><i className="grey wrench icon" onClick={()=>this.handleEditJournal()}></i></button></div>
-         </div>
-       </div> : <div className="row" style={this.styleMe()} onClick={this.handleClick}>
-         <div className="column">
-           {this.props.journal.theme}
+           <div style={this.rowStyle}></div>
          </div>
        </div>}
     </Fragment>

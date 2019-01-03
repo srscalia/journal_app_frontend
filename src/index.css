@@ -144,3 +144,10 @@
 #signup {
   margin-top: 60px
 }
+.shelby:hover {
+  background-color: #F5F5F5;
+}
+
+.gallery:hover{
+  opacity: 0.8;
+}
