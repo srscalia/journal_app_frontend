@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 class Journal extends Component {
 
   state = {
-    editJournal: false,
     theme: this.props.journal.theme
   }
 
@@ -20,9 +19,7 @@ class Journal extends Component {
   }
 
   handleEditJournal = ()=>{
-    this.setState({
-      editJournal: !this.state.editJournal
-    })
+    this.props.changeEditJournal(this.props.journal.id)
   }
 
   handleChangeFor = (event) => {
@@ -97,7 +94,8 @@ class Journal extends Component {
   render() {
     return (
       <Fragment>
-      {this.state.editJournal ? <div className="row">
+      {this.props.editJournal && this.props.journal.id === this.props.selectedJournal
+        ? <div className="row">
         <div className="column">
           <form onSubmit={this.handleEdit} className="ui form">
             <div className="field">
@@ -125,7 +123,8 @@ class Journal extends Component {
 function mapStateToProps(state){
   return {
     user: state.user,
-    selectedJournal: state.selectedJournal
+    selectedJournal: state.selectedJournal,
+    editJournal: state.editJournal
   }
 }
 
@@ -141,6 +140,10 @@ function mapDispatchToProps(dispatch){
     }),
     deleteJournal: ()=> dispatch({
       type: "DELETED_JOURNAL"
+    }),
+    changeEditJournal: (id)=>dispatch({
+      type: "CHANGE_EDIT_JOURNAL",
+      payload: id
     })
   }
 }
