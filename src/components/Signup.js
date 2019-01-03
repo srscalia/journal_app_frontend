@@ -51,7 +51,7 @@ class Signup extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit} className="ui equal width form container centered">
+      <form id='signup' onSubmit={this.handleSubmit} className="ui equal width form container centered">
         <div className="fields">
           <div className="field">
             <label>Username</label>

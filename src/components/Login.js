@@ -45,7 +45,7 @@ class Login extends Component {
   render() {
     return (
       <Fragment>
-      <div className="ui grid container centered">
+      <div id="login" className="ui grid container centered">
         <div className="six wide column">
           <form onSubmit={this.handleSubmit} className="ui form grey">
             <div className="field">

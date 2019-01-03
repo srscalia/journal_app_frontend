@@ -16,7 +16,10 @@ class LoginContainer extends Component {
 
   render() {
     return (
-      this.state.newUser ? <Signup/> : <Login createAccount={this.createAccount}/>
+      <div id="loginContainer">
+        <div id="loginMessage">A place for your thoughts</div>
+        {this.state.newUser ? <Signup/> : <Login createAccount={this.createAccount}/>}
+      </div>
     )
   }
 }

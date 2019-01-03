@@ -124,3 +124,23 @@
   margin-bottom: 10px;
   margin-top: 10px;
 }
+
+#loginContainer {
+  margin-top: 90px;
+  text-align: center;
+}
+
+#loginMessage {
+  margin-top: 90px;
+  margin-bottom: 50px;
+  font-size: 50px;
+  color: #808080;
+}
+
+#login {
+  margin-top: 60px
+}
+
+#signup {
+  margin-top: 60px
+}
