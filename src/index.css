@@ -149,3 +149,7 @@
 .gallery:hover{
   opacity: 0.8;
 }
+
+body {
+  font-size: 16px;
+}

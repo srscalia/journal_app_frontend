@@ -20,7 +20,8 @@ const Header = ()=> {
     paddingTop: '0px',
     paddingBottom: '35px',
     paddingRight: '25px',
-    color: '#808080'
+    color: '#808080',
+    textSize: '20px'
   }
 
   return (

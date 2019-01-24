@@ -16,11 +16,10 @@ class NewEntryForm extends Component {
       if (result && result.event==="success") {
         this.setState({
           photo: result.info.url
-        }
-      )
+        })
+      }
     }
-
-  });
+  );
 
   componentDidMount(){
     this.showLocation()
