@@ -54,38 +54,31 @@ class Signup extends Component {
       <form id='signup' onSubmit={this.handleSubmit} className="ui equal width form container centered">
         <div className="fields">
           <div className="field">
-            <label>Username</label>
             <input type="text" placeholder="Username" value={this.state.username} onChange={this.handleChangeFor('username')}></input>
           </div>
           <div className="field">
-            <label>Password</label>
             <input type="password" placeholder="Password" value={this.state.password} onChange={this.handleChangeFor('password')}></input>
           </div>
         </div>
         <div className="fields">
           <div className="field">
-            <label>First name</label>
             <input type="text" placeholder="First Name" value={this.state.firstName} onChange={this.handleChangeFor('firstName')}></input>
           </div>
           <div className="field">
-            <label>Last name</label>
             <input type="text" placeholder="Last Name" value={this.state.lastName} onChange={this.handleChangeFor('lastName')}></input>
           </div>
         </div>
         <div className="fields">
           <div className="field">
-            <label>Email</label>
             <input type="text" placeholder="Email" value={this.state.email} onChange={this.handleChangeFor('email')}></input>
           </div>
           <div className="field">
-            <label>Phone</label>
             <input type="text" placeholder="Phone" value={this.state.phone} onChange={this.handleChangeFor('phone')}></input>
           </div>
         </div>
         <button className="ui button" type="submit" value="submit">Submit</button>
+        <div id="alreadyMember" onClick={()=>window.location.reload()} className="ui small message">Already a member? Log in Here.</div>
       </form>
-
-
     )
   }
 }

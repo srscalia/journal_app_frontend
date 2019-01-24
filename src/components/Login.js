@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 
@@ -44,7 +44,6 @@ class Login extends Component {
 
   render() {
     return (
-      <Fragment>
       <div id="login" className="ui grid container centered">
         <div className="six wide column">
           <form onSubmit={this.handleSubmit} className="ui form grey">
@@ -61,7 +60,6 @@ class Login extends Component {
           <div onClick={this.props.createAccount} className="ui small message">New to us? Sign Up Here.</div>
         </div>
       </div>
-</Fragment>
     )
   }
 }
