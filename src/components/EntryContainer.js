@@ -73,17 +73,5 @@ function mapStateToProps(state){
   }
 }
 
-// function mapDispatchToProps(dispatch){
-//   return {
-//     updateUserEntries: (user)=> dispatch({
-//       type: "UPDATE_USER",
-//       payload: user
-//     }),
-//     updateShowForm: ()=> dispatch({
-//       type: "SHOW_FORM",
-//       payload: false
-//     })
-//   }
-// }
 
 export default connect(mapStateToProps)(EntryContainer)

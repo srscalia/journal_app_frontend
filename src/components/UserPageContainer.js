@@ -19,6 +19,7 @@ class UserPageContainer extends Component {
   };
 
   showFormFn = ()=>{
+    this.props.addJournal()
     this.setState({
       showForm: !this.state.showForm
     })
@@ -137,6 +138,9 @@ function mapDispatchToProps(dispatch){
     }),
     showAllPhotosUponLogin: ()=>dispatch({
       type: "SHOW_ALL_PHOTOS_UPON_LOGIN"
+    }),
+    addJournal: ()=>dispatch({
+      type: "ADD_JOURNAL"
     })
   }
 }

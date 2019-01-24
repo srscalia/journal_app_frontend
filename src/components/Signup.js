@@ -76,7 +76,7 @@ class Signup extends Component {
             <input type="text" placeholder="Phone" value={this.state.phone} onChange={this.handleChangeFor('phone')}></input>
           </div>
         </div>
-        <button className="ui button" type="submit" value="submit">Submit</button>
+        <button className="ui button" type="submit" value="submit">Sign Up</button>
         <div id="alreadyMember" onClick={()=>window.location.reload()} className="ui small message">Already a member? Log in Here.</div>
       </form>
     )

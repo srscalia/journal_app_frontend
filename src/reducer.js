@@ -45,7 +45,8 @@ function reducer(state = initialState, action){
         return {...state, allEntries: true, selectedJournal: null, selectedEntry: null, showPhotos: true, showEntry: false}
     case "CHANGE_EDIT_JOURNAL":
       return {...state, editJournal: !state.editJournal, selectedJournal: action.payload, selectedEntry: null, allEntries: false, showPhotos: false}
-
+    case "ADD_JOURNAL":
+      return {...state, selectedJournal: null, selectedEntry: null, showPhotos: false, allEntries: false}
     default:
       return state
   }
