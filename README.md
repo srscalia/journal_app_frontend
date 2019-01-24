@@ -43,3 +43,5 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 # journal_app_frontend
+
+Demo: https://www.youtube.com/watch?v=Rew72U8tiRs
