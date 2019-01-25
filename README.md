@@ -21,7 +21,7 @@ These instructions will get you a copy of the frontend for the project up and ru
 Things you need to install the software and how to install them:
 
   * [node](https://nodejs.org/en/) - an environment for developing server-side applications; used to instal npm
-  * [npm] (https://docs.npmjs.com/) - package manger for JavaScript 
+  * [npm](https://docs.npmjs.com/) - package manger for JavaScript 
   * [Cloudinary](https://cloudinary.com/) -  a comprehensive cloud-based image and video management platform.
 
 #### Cloudinary
