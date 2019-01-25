@@ -1,47 +1,61 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Journaling App (Frontend)
 
-## Available Scripts
+**Demo**: https://www.youtube.com/watch?v=Rew72U8tiRs
 
-In the project directory, you can run:
+A safe place for your thoughts. An online journaling app. 
 
-### `npm start`
+Users log in or sign up to create account with the app. Users create different themed journals where they can add entries with or without media. Users can view photos from each journal or all journals in the photo gallery feature. 
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Getting Started
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+This is the frontend repository for this project. To run this app on your local machine you must have the frontend and backend repos. For backend instructions, see [README.md](https://github.com/srscalia/journal_app_backend). For frontend instructions, see the following:
 
-### `npm test`
+  * Clone this repo down to your local machine. 
+  * In the repository, run `npm install`.
+  * Run ` npm start`. (If prompted to run on different port, select yes. Open [http://localhost:3001](http://localhost:3001) to view it in the browser.)
+  
+These instructions will get you a copy of the frontend for the project up and running on your local machine for development purposes.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Prerequisites
 
-### `npm run build`
+Things you need to install the software and how to install them:
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  * [node](https://nodejs.org/en/) - an environment for developing server-side applications; used to instal npm
+  * [npm] (https://docs.npmjs.com/) - package manger for JavaScript 
+  * [Cloudinary](https://cloudinary.com/) -  a comprehensive cloud-based image and video management platform.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+#### Cloudinary
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+You will need to [create a Cloudinary account](https://cloudinary.com/users/register/free) to allow for uploads. Once you create an account,  go to Settings, go to Upload, and add an Upload Preset. In your repository, create an `.env` file and add your `REACT_APP_CLOUD_NAME=’string’` and `REACT_APP_UPLOAD_PRESET=’string’` to the file. Be sure to add the `.env` file to the `.gitignore` file.
 
-### `npm run eject`
+## Running the tests
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Currently there are no tests for this system.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Built With
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+  * [React](https://reactjs.org/docs/getting-started.html) - JavaScript library for building user interfaces
+  * [React Redux](https://redux.js.org/basics/usage-with-react) - a predictable state container for JavaScript apps
+  * [Cloudinary’s upload widget](https://cloudinary.com/documentation/upload_widget) -  a comprehensive cloud-based image and video management platform.
+  * [Semantic](https://semantic-ui.com/) - development framework that helps create beautiful, responsive layouts using human-friendly HTML
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Contributing
 
-## Learn More
+Please message owner of repository, Shelby Scalia, for details on the process for submitting pull requests to us.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Versioning
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-# journal_app_frontend
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/srscalia/kitty_kard_backend/tags). 
 
-Demo: https://www.youtube.com/watch?v=Rew72U8tiRs
+## Authors
+
+**Shelby Scalia** - *Initial work*
+
+## License
+
+N/A
+
+## Acknowledgments
+
+Thank you Flatiron School for the support during this project’s creation. 
+
