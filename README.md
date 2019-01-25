@@ -39,6 +39,10 @@ Currently there are no tests for this system.
   * [Cloudinary’s upload widget](https://cloudinary.com/documentation/upload_widget) -  a comprehensive cloud-based image and video management platform.
   * [Semantic](https://semantic-ui.com/) - development framework that helps create beautiful, responsive layouts using human-friendly HTML
 
+### Component Tree Structure
+
+![Component Tree Structure](https://res.cloudinary.com/sdfsdgwqwr123123/image/upload/v1548447295/ComponentTree.pdf "Component tree structure")
+
 ## Contributing
 
 Please message owner of repository, Shelby Scalia, for details on the process for submitting pull requests to us.
