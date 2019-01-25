@@ -14,7 +14,7 @@ This is the frontend repository for this project. To run this app on your local 
   * In the repository, run `npm install`.
   * Run ` npm start`. (If prompted to run on different port, select yes. Open [http://localhost:3001](http://localhost:3001) to view it in the browser.)
   
-These instructions will get you a copy of the frontend for the project up and running on your local machine for development purposes.
+These instructions will get you a copy of the frontend for the project up and running on your local machine for development purposes. Both the backend and frontend will need to be running for this software to work.
 
 ### Prerequisites
 
